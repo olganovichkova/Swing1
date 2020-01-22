@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 public class MainFrame extends JFrame {
 
     private TextPanel textPanel;
-//    private JButton btn;
     private Toolbar toolbar;
+    private FormPanel formPanel;
 
     public MainFrame(){
         super ("Hello World");
@@ -15,8 +15,8 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
 
         toolbar = new Toolbar();
-//        btn = new JButton("Click Me");
         textPanel = new TextPanel();
+        formPanel = new FormPanel();
 
         toolbar.setStringListener(new StringListener() {
             public void textEmitted(String text) {
@@ -33,7 +33,8 @@ public class MainFrame extends JFrame {
 
         add(toolbar, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
-//        add(btn, BorderLayout.SOUTH);
+        add(formPanel, BorderLayout.WEST);
+
 
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
