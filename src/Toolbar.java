@@ -9,8 +9,6 @@ public class Toolbar extends JPanel implements ActionListener {
 
     private StringListener textListener;
 
-//    private TextPanel textPanel;
-
     public Toolbar(){
         setBorder(BorderFactory.createEtchedBorder());
 
