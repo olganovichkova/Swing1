@@ -18,6 +18,8 @@ public class MainFrame extends JFrame {
         textPanel = new TextPanel();
         formPanel = new FormPanel();
 
+        setJMenuBar(createMenuBar());
+
         toolbar.setStringListener(new StringListener() {
             public void textEmitted(String text) {
                 System.out.println(text);
@@ -50,5 +52,41 @@ public class MainFrame extends JFrame {
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    private JMenuBar createMenuBar(){
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem exportDataItem = new JMenuItem("Export Data...");
+        JMenuItem importDataItem = new JMenuItem("Import Data...");
+        JMenuItem exitItem = new JMenuItem("Exit");
+
+        fileMenu.add(exportDataItem);
+        fileMenu.add(importDataItem);
+        fileMenu.addSeparator();
+        fileMenu.add(exitItem);
+
+        JMenu windowMenu = new JMenu("Window");
+        JMenu showMenu = new JMenu("Show");
+
+        JCheckBoxMenuItem showFormItem = new JCheckBoxMenuItem("Person Form");
+        showFormItem.setSelected(true);
+
+        showMenu.add(showFormItem);
+        windowMenu.add(showMenu);
+
+        menuBar.add(fileMenu);
+        menuBar.add(windowMenu);
+
+        showFormItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev) {
+                JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) ev.getSource();
+
+                formPanel.setVisible(menuItem.isSelected());
+            }
+        });
+
+        return menuBar;
     }
 }
