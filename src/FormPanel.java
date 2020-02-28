@@ -46,7 +46,7 @@ public class FormPanel extends JPanel {
         nameLabel.setDisplayedMnemonic(KeyEvent.VK_N);
         nameLabel.setLabelFor(nameField);
 
-        
+
 
         femaleRadio = new JRadioButton("female");
         genderGroup = new ButtonGroup();
