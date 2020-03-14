@@ -1,3 +1,5 @@
+package gui;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -81,12 +83,12 @@ public class FormPanel extends JPanel {
 
         ageList.setPreferredSize(new Dimension(110, 70));
         ageList.setBorder(BorderFactory.createEtchedBorder());
-        ageList.setSelectedIndex(1);
+        ageList.setSelectedIndex(0);
 
         //Set up combo box
         DefaultComboBoxModel empModel = new DefaultComboBoxModel();
         empModel.addElement("Employed");
-        empModel.addElement("Self -Employed");
+        empModel.addElement("Self-Employed");
         empModel.addElement("Unemployed");
         empCombo.setModel(empModel);
         empCombo.setSelectedIndex(0);
@@ -112,7 +114,7 @@ public class FormPanel extends JPanel {
                         empCat, taxId, usCitizen, gender );
 
                 if (formListener != null) {
-                    formListener.formEventOcurred(ev);
+                    formListener.formEventOccurred(ev);
                 }
 
             }
@@ -298,7 +300,6 @@ class AgeCategory {
     }
 
     public String toString(){
-
         return text;
     }
 
